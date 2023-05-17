@@ -27,9 +27,9 @@ function SignUp() {
   return (
     <>
     <div className="signup">
-   <Link to={'/register'} >  <h1><FaUser/> Sign in</h1> </Link> 
+   <Link to={'/register'}  id='link'>  <h1 id='user-logo'><FaUser/> Sign in</h1> </Link> 
 
-    <h1>
+    <h1 id='user-email'>
      { getEmail}
     </h1>
     </div>

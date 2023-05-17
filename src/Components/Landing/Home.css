@@ -17,8 +17,12 @@ margin: 0%;
 }
 
 
-
-
+#user-logo{
+    margin-left: 150px;
+}
+#user-email{
+    margin-right: 150px;
+}
 
 #link{
     text-decoration: none;
@@ -154,7 +158,6 @@ label{
 .advertisement{
     width: 100%;
     height: 200px;
-    border: 1px solid;
     display: flex;
     align-items: center;
     justify-content: center;

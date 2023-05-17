@@ -1,0 +1,11 @@
+.get-each-car-more-data{
+    width: 510px;
+    height: 700px;
+    margin-top: 50px;
+}
+.car-data-location{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+}

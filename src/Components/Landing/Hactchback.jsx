@@ -1,11 +1,12 @@
 import React from 'react'
 import  './Home.css'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 function Hactchback(prop) {
 
+  const navigate = useNavigate()
   return (
 
-<Link to={`/CarDetails/:${prop.Data.id}`} >
+
 
 <div className='components' >
     <img src={prop.Data.image} alt='Hatchbac cars' />
@@ -15,9 +16,16 @@ function Hactchback(prop) {
     <h2 style={{margin:'20px'}}>
         {prop.Data.price}
     </h2>
-    <button className='hatch-button'>Check May Offers</button>
+    <button className='hatch-button'
+     onClick={()=>{
+      navigate('\CarDetails' ,{state : {
+        details : prop.Data
+      }})
+    }}
+    
+    >Check May Offers</button>
     </div>
-</Link>
+
   )
 }
 

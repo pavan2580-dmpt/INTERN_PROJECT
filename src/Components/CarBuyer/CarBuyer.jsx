@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import './carbuyer.css'
 import Footer from '../Landing/Footer'
 import {BsSearch} from 'react-icons/bs'
@@ -7,8 +7,17 @@ import {AiOutlineHeart} from "react-icons/ai"
 import {CiTwitter} from "react-icons/ci"
 import Header from '../Landing/Header'
 import SignUp from "../Landing/SignUp"
+import ShowMore from './Show-more'
+
 
 function CarBuyer() {
+
+    const [showComponent, setShowComponent] = useState(false);
+
+    const toggleComponent = () => {
+      setShowComponent(!showComponent);
+    };
+
   return (
     <>
     <SignUp/>
@@ -240,7 +249,7 @@ sell</p>
     <div className="car-detalis-cards">
         <img src="https://s3-alpha-sig.figma.com/img/b59d/11b1/0d5ac1b4d72b2ca3ae20d630cd80ac87?Expires=1685318400&Signature=HzyyCgYtl4r2L4OuXT9TkK5nw0yb1886NsUJTP2L65jULwQjPH3XQfVTAaclcsC9~lqd6fzc7xdISqE75UaqwCVVUIh1YQ1s42PAurWsQ6rfXJcMeSl5p4RsRa3fGBNX1qt4um2X0Vpt-ZU~9yKpRgw3yTUMiyKQ5BdU7jC17yfQG3QQ-wX7iy6nxC31UhYwZDfRejqF~5cXufy-mevlrQDMFE68fnnFuBIN89cs7fiHR~naq7-QgVJq85ZQSY222E6oKBy0-LRoWH~adpBTN2ZYottSDXBY8m7iccXazctcoc1FZ5UTRrQNKM9h7rcMlYzEER0xwX2c-19KT8Y6gg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" alt="suv"  style={{width:'400px'}}/>
         <div className="car-name">
-            <h2>2023 mahindra scorpio</h2>
+            <h2>2023  Maruthi</h2>
             <AiOutlineHeart/>
         </div>
         <p style={{margin:'10px',fontWeight:'600'}}>S3 Manual</p>
@@ -266,7 +275,7 @@ sell</p>
     <div className="car-detalis-cards">
         <img src="https://s3-alpha-sig.figma.com/img/2e00/5c68/320214c7408172035063a2ce0a03a94b?Expires=1685318400&Signature=WxrwQxC5ykC~j9ke2RsCxZVbyNARLYaZdorkHqfgVB9UP4CRMLDYVvjadQFk86d73OBwp5dI2lxBav5OeD2SOLz18KRz4lyJw5TezLKgh~IhBKAXDOC6tstf3PSdVKc24GO67ICvnPMJTzPNAAVEAM~VcZFHIitu-bzdlSmPn4EMHh~M5eDsBvt5c2V3y8~hQE07DUHT6XDiOu8US8OIKUxBNOKl~4ddeHdulNexVUdn1FOHTodCYs7Sgoj7T4N-pMmJfOeGIvmJDesCplZH89GqKjwcAjcNJL5vSdF-XmOIyx3UsaLFK4mBhpNnbMxKv7J8dcMe44S1FNu4XIs9FA__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" alt="suv"  style={{width:'400px'}}/>
         <div className="car-name">
-            <h2>2023 mahindra scorpio</h2>
+            <h2>2020 Maruthi  </h2>
             <AiOutlineHeart/>
         </div>
         <p style={{margin:'10px',fontWeight:'600'}}>S3 Manual</p>
@@ -284,11 +293,17 @@ sell</p>
     <p style={{margin:'10px',fontWeight:'600'}}> <BiMap/> Metro,Sector 5,Naidu</p>
     </div>
 
+
+   {showComponent && <ShowMore/>}
+    
+
+
 </div>
 
 
+
 <div className="view-more-seller">
-    <button className='more-car-button'>
+    <button className='more-car-button'  onClick={toggleComponent}>
         View All Cars 
     </button>
 </div>

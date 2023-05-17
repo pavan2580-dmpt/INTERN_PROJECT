@@ -146,10 +146,9 @@ linear-gradient(0deg, rgba(170, 174, 177, 0.2), rgba(170, 174, 177, 0.2));
 
 .more-cars-detalis{
     width: 100%;
-    height: 600px;
+    height: fit-content;
     background: rgba(34, 141, 203, 0.6);
     margin-top: 100px;
-    display: flex;
     justify-content: space-evenly;
     
 }
@@ -159,6 +158,8 @@ linear-gradient(0deg, rgba(170, 174, 177, 0.2), rgba(170, 174, 177, 0.2));
     height: 550px;
     background-color: white;
     margin-top: 40px;
+    margin: 40px;
+    display: inline-block;
 }
 .car-name{
     display: flex;

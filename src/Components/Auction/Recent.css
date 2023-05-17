@@ -1,0 +1,11 @@
+.recently-cars-added-to-sell{
+    border: 2px solid;
+    width: 600px;
+    height: fit-content;
+    display: flex;
+}
+.recent-cards{
+    margin: 10px;
+    width: 300px;
+    height: 340px;
+}

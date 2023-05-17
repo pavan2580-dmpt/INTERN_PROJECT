@@ -1,0 +1,174 @@
+.car-box{
+    width:100%;
+    height: 100vh;
+    background: url('https://images.unsplash.com/photo-1549927681-0b673b8243ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 450px;
+}
+.car-text-area{
+    color: white;
+    font-size: 80px;
+    width:800px ;
+    height:400px;
+    
+}
+
+.car-reg-container{
+    width: 420px;
+    height: 400px;
+   
+}
+
+#car-no{
+    width: 400px;
+    height: 50px;
+    font-size: 20px;
+    padding-left: 30px;
+    color: rgb(0, 0, 0);
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    font-weight: 800;
+    background: transparent;
+}
+#car-no::placeholder{
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-weight: 800;
+}
+
+#car-model{
+    width: 400px;
+    height: 50px;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    padding-left: 30px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    border: 2px solid black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    background: transparent;
+}
+
+#car-model::placeholder{
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-weight: 800;
+}
+
+#company{
+    width: 400px;
+    height: 50px;
+    color: rgb(3, 3, 3);
+    font-size: 20px;
+    padding-left: 30px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    border: 2px solid black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    background: transparent;
+    
+}
+#company::placeholder{
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-weight: 800;
+}
+
+#dis{
+    width: 400px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: 800;
+    color: rgb(0, 0, 0);
+    padding-left: 30px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    border: 2px solid black;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    background: transparent;
+    
+}
+
+#dis::placeholder{
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-weight: 800;
+}
+
+#file{
+    width: 400px;
+    height: 50px;
+    font-size: 20px;
+    padding-left: 30px;
+    box-sizing: border-box;
+    margin-top: 20px;
+    outline: none;
+    font-size: 20px;
+    font-weight: 1000;
+    animation: anime 15s linear 0s infinite  ;
+}
+@keyframes anime {
+    0%{
+        color: aquamarine;
+    }
+    10%{
+        color: blue;
+    }
+    20%{
+        color: rgb(198, 113, 130);
+    }
+    30%{
+        color: rgb(253, 17, 0);
+    }
+    40%{
+        color: rgb(15, 238, 123);
+    }
+    50%{
+        color: rgb(20, 180, 220);
+    }
+    60%{
+        color: rgb(229, 255, 127);
+    }
+    70%{
+        color: rgb(237, 0, 221);
+    }
+    80%{
+        color: rgb(237, 0, 0);
+    }
+    90%{
+        color: rgb(11, 227, 0);
+    }
+    100%{
+        color: rgb(0, 55, 255);
+    }
+    
+}
+
+#submit{
+    width: 200px;
+    height: 50px;
+    border: none;
+    color: white;
+    font-size: 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgb(0, 162, 255);
+}

@@ -1,0 +1,144 @@
+.auction-banner{
+    width: 100%;
+    height: 800px;
+    background: url('https://s3-alpha-sig.figma.com/img/e5b0/3593/9808c104b9096b082ef98bbe5ed0e946?Expires=1685318400&Signature=fTHRc5EGJ2ZAfai6OlYEOkKJRXUo80wRUXKKsMdklzO9oObH2huHEISgu5T5Y0cpIvxAnhGkn~BxHDvEhTT68QMp80hxzghRU3Dd-7AATBB9Fl7y3bXREcbLAD7asMHzfhKgEsja~kMkdpSEaa-lm1DZ9dCfamPrCMVORd0eigOG6i7-6mt-pbuBF4SLY1dccU~Kmv-8KQ7u6hDj3KcZtS1~voFkOYwzx6hmV87xcpFrqxCOUOPyC1xCSh8-~K7pPZ-t0TISA8BdYsTOVj36efZZk7M3ERg082cK~1RE1AJe7uxvHGVTiUMyoqrfAYsZtRtoNrQIV8bQ2Lm6M8osug__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    padding-left:100px;
+    padding-top: 350px;
+    box-sizing: border-box;
+    font-size: 30px;
+}
+.rental-car-search{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:50px ;
+}
+.rental-search{
+    width: 350px;
+    height: 50px;
+    background-color: white;
+    border: 2px solid;
+}
+#Rental-Car{
+    border: none;
+    width: 300px;
+    height: 50px;
+    outline: none;
+    font-size: 25px;
+}
+
+#No-Days{
+    width: 200px;
+    height: 50px;
+    border: 2px solid;
+    outline: none;
+    font-size: 25px;
+}
+.rent-button{
+    width: 150px;
+    height: 40px;
+    color: white;
+    background-color: rgba(24, 119, 242, 1);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+.Click-to-Show-Price{
+    display: none;
+
+}
+.show{
+    display: block;
+}
+
+/* ------------------------------ */
+.show-rate-price{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    background-color:rgb(124, 193, 254) ;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 30px;
+}
+/* --------------------------------------------------------------- */
+
+.main-auction-container{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+}
+.Filters{
+    width: 300px;
+    height: fit-content;
+    border: 2px solid orangered;
+}
+#vehicle{
+    cursor: pointer;
+    margin-top: 30px;
+    margin-left: 20px;
+    
+}
+.vehicle-type{
+    display: none;
+    border: 2px solid;
+    width: 200px;
+    height: 250px;
+    margin-left: 20px;
+    font-size: 25px;
+    font-weight: 600;
+}
+.show{
+    display: block;
+}
+#kil{
+    cursor: pointer;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+#PAY{
+    cursor: pointer;
+    margin-top: 30px;
+    margin-left: 20px;
+
+}
+#trans{
+    cursor: pointer;
+    margin-top: 30px;
+    margin-left: 20px;
+}
+/* ---------------------- */
+.car-prints{
+    width: 650px;
+    height: fit-content;
+    gap: 30px;
+    
+
+}
+.CARD{
+    width: 270px;
+    height: 250px;
+    display: inline-block;
+    margin: 20px;
+}
+.auction-price{
+    width: 100px;
+    height: 30px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: rgb(27, 145, 241);
+}
+.auction-price:hover{
+    box-shadow: 5px 5px 20px rgb(27, 145, 241);
+}

@@ -7,6 +7,7 @@ import { BrowserRouter,Router,Route, Routes } from 'react-router-dom'
 import Login from './Components/Accounts/Login'
 import Register from './Components/Accounts/Register'
 import CarRegister from './Components/CarSeller/carRegister'
+import Dummy from './Components/Landing/Dummy'
 function App() {
   return (
     <>
@@ -19,6 +20,7 @@ function App() {
           <Route path='/login' element={<Login/>} />
           <Route path='/Register' element={<Register/>} />
           <Route path='/Register your Car' element={<CarRegister/>} />
+          <Route path='/CarDetails/:id' element={<Dummy/>}/>
         </Routes>
     
     

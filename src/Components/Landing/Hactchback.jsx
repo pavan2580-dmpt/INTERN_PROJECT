@@ -1,9 +1,13 @@
 import React from 'react'
 import  './Home.css'
+import { Link } from 'react-router-dom'
 function Hactchback(prop) {
+
   return (
 
-<div className='components'>
+<Link to={`/CarDetails/:${prop.Data.id}`} >
+
+<div className='components' >
     <img src={prop.Data.image} alt='Hatchbac cars' />
     <h2 style={{marginLeft:'20px'}}>
         {prop.Data.name}
@@ -13,7 +17,7 @@ function Hactchback(prop) {
     </h2>
     <button className='hatch-button'>Check May Offers</button>
     </div>
-
+</Link>
   )
 }
 

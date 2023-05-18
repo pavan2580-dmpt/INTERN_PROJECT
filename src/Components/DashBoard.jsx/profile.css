@@ -1,0 +1,8 @@
+.profile-page{
+    width:100%;
+    height: fit-content;
+    border: 2px solid;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}

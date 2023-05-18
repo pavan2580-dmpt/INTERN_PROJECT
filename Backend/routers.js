@@ -4,7 +4,18 @@ const UserData = require('./dataBase');
 const multer = require('multer');
 const path = require('path');
 const carRegister = require('./Car.js');
-let GETIDFORSPECIFI;
+const session = require('express-session');
+const CarData = require('./filtercarDB')
+const Cart = require('./Cart')
+const mongoose = require('mongoose')
+
+router.use(
+    session({
+      secret: 'your-secret-key',
+      resave: false,
+      saveUninitialized: false
+    })
+  );
 
 
 
@@ -30,7 +41,17 @@ router.route("/Register").post(async (req, res) => {
                 email,
                 phone,
                 gender,
-                password
+                password,
+                fisrtname:'---------------',
+                Lastname:'-----------------',
+                DOB:'--------------------',
+                username:'-------------------',
+                country:'--------------------',
+                state:'-------------------------',
+                City:'----------------------',
+                Area:'------------------',
+                pineCode:'------------------',
+                About:'---------------------'
             });
             res.send(newUser);
             console.log("Inserted 1 user.");
@@ -43,49 +64,93 @@ router.route("/Register").post(async (req, res) => {
     }
 });
 
-//----------------------------Login--------------------------------------------
+// -----------------------------Login route-------------------------------------------
+router.post('/login', async (req, res) => {
+    const {  email, password } = req.body;
+    const logUser = await UserData.findOne({ email: email });
+  
+    if (!logUser) {
+      res.status(400).send("Invalid user data");
+    } else if (email === logUser.email && password === logUser.password) {
+      req.session.logUser = logUser;
+      res.status(200).send(logUser._id); 
+      console.log("Logged in");
+    } else {
+      res.status(400).send("Invalid credentials");
+      console.log("Invalid details");
+    }
+  });
+  
+  //-------------------------- Dashboard route----------------------------------------
+  router.route('/dashboard/:id').get( async (req, res) => {
 
-router.route("/login/").post(
-    async (req,res)=>{
-     const {username,email,password} = req.body
-     const Log_User = await UserData.findOne({email:email}) 
-     
-         if(!Log_User){
-             res.send("Invalid user data ....")
-         }
-         else if(email === Log_User.email && username===Log_User.username && password===Log_User.password){
-             const userid = Log_User.id
-             GETIDFORSPECIFI = userid;
-             res.status(200).send(userid)
-             console.log("logined")
- 
-             
-         }
-         else{
-             res.status(400).send("invalid data")
-             console.log("Invalid details....")
-         }
-        
- 
-         
-     }
- )
-//------------specifi Data ----------------------------
-router.route("/dashboard").get(
-    async (req,res)=>{
-     
-     const Specifi_User = await UserData.findById(GETIDFORSPECIFI)
-         if(!Specifi_User){
-             res.send("Login and try")
-         }
-         else{
-             res.send(Specifi_User)
-         }
-     }
- )
+    const USERID = new mongoose.Types.ObjectId(req.params.id);
+    try{
+    const getSpecifi  = await UserData.findById(USERID)
+    res.send(getSpecifi)
+    }
+    catch(err){
+      res.status(401).send("not found")
+    }
+    
+  });
+  
+//---------------------------Profile  Update----------------------------------------------------
+
+router.put('/profile/:id', async (req, res) => {
+    const logUser = req.params.id;
+    const { fisrtname, Lastname,DOB,username,country,state,City,Area,pineCode,About } = req.body;
+    console.log(req.body)
+  
+    try {
+     //-------------find user---------------------
+      const user = await UserData.findById(logUser);
+  
+      if (!user) {
+        return res.status(404).json({ error: 'User not found' });
+      }
+  
+      //------------from Body ------------------------------
+      user.fisrtname = fisrtname;
+      user.Lastname = Lastname;
+      user.DOB = DOB;
+      user.country = country;
+      user.username = username;
+      user.state = state;
+      user.City = City;
+      user.Area = Area;
+      user.pineCode = pineCode;
+      user.About = About;
+
+  
+      // ---------------------Save Changes---------------------
+      await user.save();
+  
+      res.status(200).json({ message: 'Profile updated successfully' });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
 
 
-
+//---------------------delete profile --------------------------------
+router.delete('/users/:id', async (req, res) => {
+    try {
+        user_Id = req.params.id;
+        console.log(user_Id)
+      const deletedUser = await UserData.findByIdAndDelete(user_Id);
+  
+      if (!deletedUser) {
+        return res.status(404).json({ error: 'User not found' });
+      }
+  
+      res.status(200).json({ message: 'User deleted successfully' });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
 
 
 
@@ -139,6 +204,100 @@ router.route("/getCars").get(async (req, res) => {
         res.status(500).send("Error fetching data.");
     }
 });
+
+
+
+//--------------------Filter api -------------------------------------------
+//post
+
+router.route('/PostAllCARDATA').post(
+  async (req,res)=>{
+
+      const {image,company,Model,Price} = req.body;
+      const posted = await CarData.insertMany(
+        {
+          image,
+          company,
+          Model,
+          Price
+        }
+      ).then(
+        (resp)=>res.send(resp)
+      ).catch(
+        (err)=>{
+          console.log('error')
+        }
+      )
+
+
+  }
+)
+
+
+
+//get api
+
+router.route('/getallcars').get(
+ async (req,res)=>{
+    const getAll = await CarData.find({})
+    .then(
+      (response)=>res.send(response)
+    )
+  }
+)
+
+
+
+
+//----------------------Cart routes-------------------------------------------
+
+
+router.route('/postCartitems').post(
+  async(req,res)=>{
+    const {image,company,Model,Price} = req.body;
+    const Post = await Cart.insertMany({
+      image,company,Model,Price
+
+    }).then(
+      (respond)=>res.send(respond)
+    ).catch(
+      ()=>res.send("Error in cart addition")
+    )
+  }
+)
+
+
+//----get----
+
+router.route('/getCart').get(
+  async(req,res)=>{
+    const allCart= await Cart.find({})
+    res.send(allCart)
+  }
+    
+  
+)
+
+
+//delete
+
+router.route('/delete/:id').delete(
+  async(req,res)=>{
+      Key=req.params.id;
+     
+    console.log(Key)
+    const Delete = await Cart.findByIdAndDelete(Key).then(
+      (res)=>{res.state(200).send("Done deleted")}
+    ).catch((err)=>{
+      res.send(err)
+    })
+  }
+)
+
+
+
+
+
 
 
 

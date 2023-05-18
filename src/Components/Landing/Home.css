@@ -154,6 +154,22 @@ label{
     cursor: pointer;
     
 }
+/* --------------------------------------------------------------- */
+.fetch-filter-data-container{
+    width: 100%;
+    height: fit-content;
+    border: 2px solid;
+    background-color: rgb(202, 202, 202);
+    
+}
+
+
+
+
+
+
+
+
 /* -----------------------------Add----------------------- */
 .advertisement{
     width: 100%;

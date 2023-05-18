@@ -17,7 +17,18 @@ const Clients = new mongoose.Schema(
         password:{
             type:String,
             required:true
-        }
+        },
+        fisrtname:String,
+        Lastname:String,
+        DOB :String,
+        username:String,
+        country:String,
+        state:String,
+        City:String,
+         Area:String,
+         pineCode:String,
+         About:String   
+
     }
 )
 

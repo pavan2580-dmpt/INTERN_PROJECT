@@ -1,0 +1,14 @@
+.cart-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.carts-data{
+    border:2px solid black;
+    height: fit-content;
+
+}
+.cats{
+    display: inline-block;
+}

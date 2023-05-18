@@ -22,6 +22,13 @@ function Header() {
             <Link to={"/Auction"} id='link'>
                <label id="auction-btn">Auction</label>
             </Link>
+
+            <Link to={"/Profile"} id='link'>
+               <label id="profile-btn">Profile</label>
+            </Link>
+            <Link to={"/Cart"} id='link'>
+               <label id="profile-btn">Cart</label>
+            </Link>
         </div>
     </div> 
     

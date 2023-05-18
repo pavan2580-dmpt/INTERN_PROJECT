@@ -25,6 +25,7 @@ mongoose.connect('mongodb+srv://pavanganesh:pavanganesh@cluster0.axrs7n2.mongodb
     console.log("Error in connection to database:", err);
 });
 
+
 app.listen(3001, () => {
     console.log("Server is running at port 3001");
 });

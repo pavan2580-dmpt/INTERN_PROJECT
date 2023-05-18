@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Hactchback from './Hactchback';
 import { Hactback } from './HatchbackData';
 import { CiTwitter } from 'react-icons/ci';
@@ -13,8 +13,52 @@ import UpComingData from './UpComingData.jsx';
 import UpComing from './UpComing';
 import HybridCars from './HybridCars';
 import Hybrid from './Hybrid';
+import axios from 'axios';
+
+
 
 function HomePage() {
+
+
+
+
+  const [products,setProduct ] = useState([])
+  const [userPrice,SetUserPrice] = useState(0)
+const GetFilterData = async()=>{
+    const getCars = await axios.get('http://localhost:3001/Car/getallcars').then(
+       (res)=>{
+        setProduct(res.data)
+       }
+    )
+}
+
+useEffect(()=>{
+  GetFilterData()
+},[])
+
+
+const GetUserPrice = (e)=>{
+      SetUserPrice(e.target.value)
+      console.log(e.target.value)
+}
+
+const handleCart =async (PRODUCT)=>{
+  const cartAdd = await axios.post("http://localhost:3001/Car/postCartitems",{
+    image : PRODUCT.image,
+    company : PRODUCT.company,
+    Model : PRODUCT.Model,
+    Price : PRODUCT.Price
+  })
+  
+
+}
+
+
+
+const filteredProducts = products.filter((product) => product.Price <= userPrice);
+console.log(filteredProducts);
+
+
   const myDivRef = useRef(null);
  
 
@@ -59,22 +103,23 @@ const handleColored = ()=>{
             <input type="radio" name="Car" id="brand" /> By Brand
           </div>
           <div className="select">
-            <select
-              name="selectBudet"
-              className="selectBudet"
-            >
-              <option>Select Budet</option>
-              <option>20,00,000</option>
-              <option>15,00,000</option>
-              <option>10,00,000</option>
-              <option>5,00,000</option>
-              <option>3,00,000</option>
-            </select>
+          <select
+        name="selectBudget"
+        className="selectBudet"
+        onChange={GetUserPrice}
+      >
+        <option>Select Budget</option>
+        <option value={'2000000'}>2000000</option>
+        <option value={'1500000'}>1500000</option>
+        <option value={'1000000'}>1000000</option>
+        <option value={'500000'}>500000</option>
+        <option value={'300000'}>300000</option>
+      </select>
 
-            <select name="selectvehicletype" className="selectvehicletype">
+            <select className="selectvehicletype">
               <option>Select Vehicles Type</option>
               <option>
-                <a href="#Hatch Back">HatchBack</a>
+                HatchBack
               </option>
               <option>Sedan</option>
               <option>Up Coming Cars</option>
@@ -86,6 +131,7 @@ const handleColored = ()=>{
           <div className="Search">
             <button className="Search-button"
             onClick={() => myDivRef.current.scrollIntoView({ behavior: "smooth" })}
+           
             >
               Search
               </button>
@@ -94,6 +140,35 @@ const handleColored = ()=>{
       </div>
 
 {/* ---------------------------------------------------------- */}
+
+
+<div className="fetch-filter-data-container">
+
+
+   {
+        filteredProducts.map((product) => (
+           <div key={product.id} style={{margin:'20px',marginTop:'40px',display:'inline-block'  }}>
+                <img src={product.image} alt="car" width={'250px'} height={'200px'} />
+                <h1>
+                  company :{product.company}
+                </h1>
+                <h1>
+                  Model : {product.Model}
+                </h1>
+                <h1>
+                  Price : {product.Price}
+                </h1>
+                <button onClick={()=>handleCart(product)} style={{width:'150px',height:'50px',border:'none',color:'white',background:'blue',cursor:'pointer'}}>
+                    Buy Now
+                </button>
+          </div>
+  ))}
+
+
+
+</div>
+
+{/* ----------------------------------------------- */}
 
 <div className="advertisement">
 <img src='https://s3-alpha-sig.figma.com/img/3786/afa5/f9fb4f05e709d42f6de4d23fbeaea6f5?Expires=1685318400&Signature=NO0q~fALT1iEKj2rk9AEEmpSQpIYL9Dca96PxCYPMkz5UCHANpp4BpepsgHtWHlrtT1WwwT6BRvvVJVyo~4NZBXW-OGYHDnzJ0Smq4ve7hFQ6fPcvEfv~O~nkT~lSYK~AbhFp92VVEQ4F6iqBbLkyXrJUKk9vhFUbwqItFLDtAYZQx2O-v0gUt6llY1yBysVLXmHEH-Lk06vrw57sgQ45BIRsB7NOp1uyvk991Yhi~pJeQ3dR4zykz3Vhmz0DBQxbNBn~t6LEGgHmP9PLfl~ujMPcFQN7DyuGRuo6Gh4~8BAxmltqb8v2LrXxccSyzOyCc0jvy5yHn0JD-gdKIj3dg__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4' alt='add'  style={{width:'1200px',height:'150px'}}             />

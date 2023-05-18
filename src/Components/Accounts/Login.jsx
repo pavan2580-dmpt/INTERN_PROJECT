@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import  axios  from 'axios';
+import Cookies from 'js-cookie';
+
 import './Account.css'
 function Login() {
 
-  
+  const navigate = useNavigate();
   const [upass,Setpass] = useState()
   const [uEmail,SetEmail] = useState()
    
@@ -17,10 +19,12 @@ function Login() {
       password:upass
     }).then(
        (res)=>{
-        // UserIdFormLogin =  res.data
+        const userID = res.data;
+        Cookies.set('userID',userID)
        
-       
-     window.location.href='/'
+         navigate('/')
+
+
       }
     ).catch(
       (res)=>{

@@ -77,10 +77,10 @@ function Register() {
       <input type="radio" name="gender" className="gender"  value='Others' onClick={(e)=>Setgender(e.target.value)}/>others
       </div>
      <div className='user-regi'>
-        <RiLockPasswordFill className='icons'/>    <input type="password" name="password" placeholder='Password ' minLength={"6"} maxLength={"8"} onChange={(e)=>Setuserpassword(e.target.value)}  className='userdata' required/>
+        <RiLockPasswordFill className='icons'/>    <input type="password" name="password" placeholder='Password ' minLength={"4"} maxLength={"15"} onChange={(e)=>Setuserpassword(e.target.value)}  className='userdata' required/>
      </div>
      <div className='user-regi'>
-          <RiLockPasswordFill className='icons'/>    <input type="password" name="conformpassword" placeholder='conformpassword'minLength={"6"} maxLength={"8"} onChange={(e)=>Setuserconformpassword(e.target.value)}  className='userdata' required/>
+          <RiLockPasswordFill className='icons'/>    <input type="password" name="conformpassword" placeholder='conformpassword'minLength={"4"} maxLength={"15"} onChange={(e)=>Setuserconformpassword(e.target.value)}  className='userdata' required/>
      </div>
      <div>
       <p id='indalid-pass'>* Both password and conform password must be same *</p>

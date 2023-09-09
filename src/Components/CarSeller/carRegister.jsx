@@ -19,8 +19,8 @@ const CarRegister = () => {
     formData.append('input3', input3);
     formData.append('input4', input4);
     formData.append('image', image);
-
-    try {
+    
+   
       await axios.post('http://localhost:3001/Car/carRegister/', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
@@ -28,18 +28,9 @@ const CarRegister = () => {
       })
       console.log('Form data submitted successfully.');
       alert("Car Registerd Successfully ")
-     
-      setInput1('');
-      setInput2('');
-      setInput3('');
-      setInput4('');
-      setImage(null);
       window.location.href="/"
-    } catch (error) {
-      console.error('Error submitting form data:', error);
-    }
+    
   };
-
   const handleImageChange = (e) => {
     setImage(e.target.files[0]);
   

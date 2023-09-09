@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const UserData = require('./dataBase');
-const multer = require('multer');
-const path = require('path');
+const multer = require('multer'); // Import the multer library
+const path = require('path'); // Import the path module
 const carRegister = require('./Car.js');
 const session = require('express-session');
 const CarData = require('./filtercarDB')
@@ -157,9 +157,10 @@ router.delete('/users/:id', async (req, res) => {
 
 // --------------------------------- Car Sell Register --------------------------
 
+
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'C:/Users/Pavan/Downloads/');
+    cb(null, 'upload');
   },
   filename: (req, file, cb) => {
     cb(null, Date.now() + path.extname(file.originalname));
@@ -169,26 +170,25 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 //-----car route------
 
-router.route("/carRegister").post(upload.single('image'), async (req,res)=>{
-
-    const {carNO,Model, company,NoKM } = req.body;
+router.post("/carRegister", upload.single('image'), async (req, res) => {
+  try {
+    const { carNO, Model, company, NoKM } = req.body;
     const imagePath = req.file ? req.file.path : null;
 
-    const formData =await carRegister.insertMany({
+    await carRegister.create({
       carNO,
       Model,
       company,
       imagePath,
       NoKM
-    }).then(
-        ()=>console.log("Done...............................")
-    )
-    .catch((error) => {
-      console.log('Error saving form data:', error);
-      res.status(500).json({error: 'Error saving form data' });
     });
- 
 
+    console.log("Form data saved successfully.");
+    res.status(200).send("Inserted image to the backend.");
+  } catch (error) {
+    console.log('Error saving form data:', error);
+    res.status(500).json({ error: 'Error saving form data' });
+  }
 });
 
 

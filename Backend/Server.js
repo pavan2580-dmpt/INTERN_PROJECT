@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 app.use('/Car/', require('./routers'));
 
 
-mongoose.connect('mongodb+srv://<username>:<password>@cluster0.axrs7n2.mongodb.net/<database>?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://pavanganesh:pavanganesh@cluster0.axrs7n2.mongodb.net/<database>?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {

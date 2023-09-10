@@ -8,7 +8,7 @@ margin: 0%;
 }
 
 .banner-buyer{
-    background:url('https://s3-alpha-sig.figma.com/img/4e34/5fc8/2cea7399280b8c1497bb00c6f066147b?Expires=1685318400&Signature=p7PJR6tY7VJ0GVwDwVNRP~h~cGXsLEthcwBMCotnWZQQv4~6uwE-cawDQkpdSknct0bDpnOolUwx5G~8lcScKKSeAF-hp4gxln0yBotsRF1RgDawUIffmPOG6JbwRgYaBPqNCJhKytLi~PpQJregibF0N49hWSPEJ9cxjVq5RANB7PiW~YJ6D3uZDrrFBrb0i1ifv~e3KyjgLZSGQ~OEmM3GZYflt26U1e5yLdl8udXcXzFf6F65mBOekZ-rpwVRZa01DebRtrv~ankLL1QM54G9yIcqQxmLspQaG5cG8xVpwzWKwQ0NMOKVfb3V1zywV28b~HYsVHDz3aDmO8Q-yQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4') ;
+    background:url('src/Components/CarBuyerAssets/mainImage.jpg') ;
     width: 100%;
     height: 600px;
     border: 2px solid;

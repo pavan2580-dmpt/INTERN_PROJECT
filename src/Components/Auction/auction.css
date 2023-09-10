@@ -1,7 +1,7 @@
 .auction-banner{
     width: 100%;
     height: 800px;
-    background: url('https://s3-alpha-sig.figma.com/img/e5b0/3593/9808c104b9096b082ef98bbe5ed0e946?Expires=1685318400&Signature=fTHRc5EGJ2ZAfai6OlYEOkKJRXUo80wRUXKKsMdklzO9oObH2huHEISgu5T5Y0cpIvxAnhGkn~BxHDvEhTT68QMp80hxzghRU3Dd-7AATBB9Fl7y3bXREcbLAD7asMHzfhKgEsja~kMkdpSEaa-lm1DZ9dCfamPrCMVORd0eigOG6i7-6mt-pbuBF4SLY1dccU~Kmv-8KQ7u6hDj3KcZtS1~voFkOYwzx6hmV87xcpFrqxCOUOPyC1xCSh8-~K7pPZ-t0TISA8BdYsTOVj36efZZk7M3ERg082cK~1RE1AJe7uxvHGVTiUMyoqrfAYsZtRtoNrQIV8bQ2Lm6M8osug__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4');
+    background: url('C:\Users/Pavan/OneDrive/Desktop/web_Dev/MEAN_STACK/GIT/INTERN_PROJECT/src/Components/LandingPageAssets/Rectangle 3.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     color: white;
@@ -80,6 +80,10 @@
 .Filters{
     width: 300px;
     height: fit-content;
+    margin-left: 20px;
+    margin-top: 15px;
+    padding: 10px 0px;
+    box-sizing: border-box;
     border: 2px solid orangered;
 }
 #vehicle{
@@ -90,7 +94,6 @@
 }
 .vehicle-type{
     display: none;
-    border: 2px solid;
     width: 200px;
     height: 250px;
     margin-left: 20px;
